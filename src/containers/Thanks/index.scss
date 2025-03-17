@@ -1,0 +1,90 @@
+@import "../../index";
+.Thanks {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  position: relative;
+  overflow: hidden;
+  .modal {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    .dialog {
+      min-width: 258px;
+      border-radius: 20px;
+      height: 483px;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      .thumbnail {
+        border-radius: 20px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        img {
+          border-radius: 20px;
+          border-bottom-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          width: 100%;
+        }
+        height: 222px;
+        background: #d6e8eb;
+        position: relative;
+        .phone {
+          width: 100%;
+          height: 100%;
+        }
+        .circle {
+          position: absolute;
+          width: 76px;
+          height: 76px;
+          top: 21px;
+          left: 67px;
+          border-width: 3px;
+        }
+        .lines {
+          position: absolute;
+          left: 20px;
+          bottom: 10px;
+        }
+      }
+      .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 258px;
+        margin: 0 auto;
+        &-heading {
+          text-align: center;
+          font-family: "Montserrat";
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 149%;
+          letter-spacing: 0%;
+          text-align: center;
+        }
+        &-description {
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 26px;
+          text-align: center;
+          color: #212121;
+          margin: 0 auto;
+        }
+        button {
+          max-width: 100%;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

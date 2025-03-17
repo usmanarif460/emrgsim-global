@@ -1,0 +1,46 @@
+@import '../../index';
+
+.Agent {
+  .kenya-header {
+    max-height: 45vh;
+    overflow: hidden;
+  }
+  .login-area {
+    min-height: 55vh;
+    background: white;
+    padding: 16vw;
+    padding-top: 4vh;
+    .button-area {
+      padding: 20px;
+      button {
+        width: 100%;
+      }
+    }
+
+    .login {
+      display: grid;
+      padding-top: 24px;
+      label {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 26px;
+        color: #00539B;
+      }
+      input, select, option {
+        padding-bottom: 8px;
+        padding-top: 8px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #E6E6E6;
+      }
+      p {
+        padding-top: 0;
+      }
+    }
+  }
+}

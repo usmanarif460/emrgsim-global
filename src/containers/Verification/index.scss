@@ -1,0 +1,61 @@
+@import '../../index';
+
+.Verification {
+  background-color: $base-color-2;
+  text-align: center;
+  min-height: 100vh;
+  color: white;
+  padding: 0 $side-padding-margin 0 $side-padding-margin;
+  h2 {
+    color: white;
+    padding-top: $header-height-middle;
+  }
+  h4 {
+    color: white;
+  }
+  .verification-description {
+    text-align: center;
+    padding-top: 2 * $padding;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .verification-button {
+    position: fixed;
+    bottom: 0;
+    width: 84vw;
+    left: 0;
+    margin: 8vw;
+  }
+  .verification-code-resend {
+    text-align: center;
+    padding-top: 16px;
+    font-size: 16px;
+    line-height: 26px;
+    color: white;
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  .verification-area {
+    width: 100%;
+    padding-top: 36px;
+    padding-bottom: 48px;
+    input[type=number] {
+      width: calc(100% / 12);
+      border: none;
+      border-bottom: 1px solid;
+      background-color: $base-color-2;
+      color: white;
+      height: 44px;
+      outline: none;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      margin: 12px;
+      text-align: center;
+      font-size: 26px;
+      padding: 0;
+      padding-bottom: 8px;
+    }
+  }
+}

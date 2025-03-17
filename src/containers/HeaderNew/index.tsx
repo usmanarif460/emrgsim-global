@@ -1,0 +1,14 @@
+import cellPhone from "../../assets/saudi/group-1.png";
+import circle from "../../assets/kenya/kaa/circle-white.png";
+
+type Props = {};
+
+const Header = (props: Props) => {
+  return (
+    <div className="Header">
+      <img className="cell" src={cellPhone} alt="" />
+    </div>
+  );
+};
+
+export default Header;

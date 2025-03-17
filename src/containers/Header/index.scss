@@ -1,0 +1,14 @@
+@import '../../index';
+
+.Header {
+  position: relative;
+  overflow: hidden;
+  background-color: $base-color;
+  height: 12rem;
+  img.cell {
+    padding-top: 15px;
+    position: absolute;
+    left: 0%;
+  }
+
+}

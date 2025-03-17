@@ -1,0 +1,40 @@
+@import '../../index';
+
+$floating-content-margin: 34px;
+
+.Home {
+  .header-logo {
+    text-align: center;
+    padding-top: 44px;
+    padding-bottom: 25px;
+    img {
+      width: 100px;
+      height: 89px;
+    }
+  }
+  h2 {
+    padding-bottom: 24px;
+  }
+  .content-area {
+    position: relative;
+    min-height: calc(#{'100vh - 162px'});
+  }
+  .content-area-body {
+    padding: 24px;
+    position: relative;
+    input {
+      margin-bottom: $default-padding;
+    }
+    .next-area {
+      text-align: center;
+      padding-top: 37px;
+    }
+    .login {
+      text-align: center;
+      padding-top: 16px;
+      font-size: 16px;
+      line-height: 26px;
+      color: $black;
+    }
+  }
+}

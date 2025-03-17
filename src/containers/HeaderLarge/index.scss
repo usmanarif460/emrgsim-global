@@ -1,0 +1,23 @@
+@import '../../index';
+
+.HeaderLarge {
+  position: relative;
+  overflow: hidden;
+  background-color: $base-color;
+  height: 216px;
+  img.message {
+    padding-top: 15px;
+    position: absolute;
+    left: 10vw;
+  }
+  img.cell {
+    padding-top: 15px;
+    position: absolute;
+    left: 50vw;
+  }
+  img.circle {
+    padding-top: 15px;
+    position: absolute;
+    right: 0;
+  }
+}
