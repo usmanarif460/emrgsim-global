@@ -8,7 +8,6 @@ import common from "../../language/english/common.json";
 import Product from "../../types/product";
 import { ImSpinner9 } from "react-icons/im";
 import Header from "../PlansHeader";
-import { useHistory } from "react-router-dom";
 
 type ProductResponse = {
   data: Array<Product>;
@@ -46,8 +45,46 @@ type Props = {
   onPlanSelection: (product: Product) => void;
 };
 
-const DataPlans = (props: Props) => {
-  const [products, setProducts] = useState<Array<Product>>([]);
+const DataPlans = ({ enableBack, onPlanSelection }: Props) => {
+  const [products, setProducts] = useState<Product[]>([
+    {
+      id: "69YtBXSZ2pP1jm1aR3Qo0A5g7LbudFBShHmFR2f02qo=",
+      name: "100MB 30-Days - ConnectAPITest - Local USA Data Bundle",
+      sim_types: ["ESIM"],
+      duration: 30,
+      duration_unit: "DAYS",
+      data: 100,
+      data_unit: "MB",
+      price: 4.0,
+      price_currency: "USD",
+      footprint_code: "USA",
+    },
+    {
+      id: "cZWNW5REQrA__CXY2s9THXDJTZylapEe9KMAp7RN53g=",
+      name: "75MB 7-Days - ConnectAPITest - Local USA Data Bundle",
+      sim_types: ["ESIM"],
+      duration: 7,
+      duration_unit: "DAYS",
+      data: 75,
+      data_unit: "MB",
+      price: 3.0,
+      price_currency: "USD",
+      footprint_code: "USA",
+    },
+    {
+      id: "J8asuny_AuWm8lceTwnARK1b3hS_hsZ7CkyAQFECbok=",
+      name: "50MB 1-Day - ConnectAPITest - Local USA Data Bundle",
+      sim_types: ["ESIM"],
+      duration: 1,
+      duration_unit: "DAYS",
+      data: 50,
+      data_unit: "MB",
+      price: 4.0,
+      price_currency: "USD",
+      footprint_code: "USA",
+    },
+  ]);
+
   const [page, setPage] = useState<number>(1);
   const [scrollBottom, setScrollBottom] = useState<number | null>(null);
   const productRef = useRef<HTMLDivElement>(null);
@@ -57,70 +94,14 @@ const DataPlans = (props: Props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = international(common.EmrgMobile);
-    props.enableBack();
-    fetchData(page);
+    enableBack();
   }, []);
 
   useEffect(() => {
     if (scrollBottom != null && scrollBottom <= window.innerHeight + 200) {
-      fetchData(page);
+      // fetchData(page);
     }
   }, [scrollBottom]);
-
-  function fetchData(page: number) {
-    if (fetchingProducts) {
-      return;
-    }
-
-    setFetchingProducts(true);
-
-    fetch(`/api/products?page=${page}`)
-      .then((res: Response) => {
-        if (res.status < 200 || res.status >= 300) {
-          throw new Error(`${res.status}`);
-        }
-        return res.json();
-      })
-      .then((resp: ProductResponse) => {
-        if (!resp.data) {
-          throw new Error(`no response data`);
-        }
-
-        let newProductsMap = new Map<string, Product>();
-        let newProducts = [...products];
-        products.forEach((product) => {
-          newProductsMap.set(product.id, product);
-        });
-
-        let start = newProducts.length % productsMeta.length;
-        resp.data.forEach((product, i) => {
-          if (
-            !newProductsMap.has(product.id) &&
-            product.sim_types.includes("ESIM")
-          ) {
-            product.data = productsMeta[start].data;
-            product.data_unit = productsMeta[start].data_unit;
-            product.duration = productsMeta[start].duration;
-            product.duration_unit = productsMeta[start].duration_unit;
-            product.price = productsMeta[start].price;
-            product.name = `${product.data} ${product.data_unit} ${product.duration}
-                     ${product.duration_unit}`;
-            newProductsMap.set(product.id, product);
-            newProducts.push(product);
-            start++;
-            start = newProducts.length % productsMeta.length;
-          }
-        });
-        setProducts(newProducts);
-        setPage(resp._metadata.page + 1);
-      })
-      .catch((err) => {
-        console.debug(err);
-      })
-      .finally(() => {
-        setFetchingProducts(false);
-      });
-  }
 
   return (
     <div className="DataPlans">
@@ -140,7 +121,7 @@ const DataPlans = (props: Props) => {
         className="content-area-large"
         ref={productRef}
         onScroll={() => {
-          if (productRef != null && productRef.current != null) {
+          if (productRef.current) {
             setScrollBottom(productRef.current.getBoundingClientRect().bottom);
           }
         }}
@@ -150,18 +131,15 @@ const DataPlans = (props: Props) => {
         </div>
         <div className="products">
           {products.slice(0, 3).map((prod, i) => {
-            const id = prod.id;
-            const idx = i;
-            const product = prod;
             return (
               <div
-                key={id}
+                key={prod.id}
                 className={
                   productIndex === i
                     ? "product product-selected"
                     : "product product-not-selected"
                 }
-                onClick={() => setProductIndex(idx)}
+                onClick={() => setProductIndex(i)}
               >
                 <div className="input">
                   <input
@@ -170,7 +148,7 @@ const DataPlans = (props: Props) => {
                     className="hidden"
                     onChange={(ev) => {
                       if (ev.target.checked) {
-                        setProductIndex(idx);
+                        setProductIndex(i);
                       }
                     }}
                   />
@@ -200,8 +178,8 @@ const DataPlans = (props: Props) => {
           <button
             type="button"
             disabled={productIndex === -1}
-            onClick={(ev) => {
-              props.onPlanSelection(products[productIndex]);
+            onClick={() => {
+              onPlanSelection(products[productIndex]);
             }}
           >
             Next
