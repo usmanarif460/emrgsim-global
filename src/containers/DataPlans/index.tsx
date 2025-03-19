@@ -45,8 +45,6 @@ type Props = {
   enableBack: () => void;
   onPlanSelection: (product: Product) => void;
 };
-const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "https://emrgsim-passport.herokuapp.com/";
 
 const DataPlans = (props: Props) => {
   const [products, setProducts] = useState<Array<Product>>([]);
@@ -75,8 +73,8 @@ const DataPlans = (props: Props) => {
     }
 
     setFetchingProducts(true);
-    console.log(API_URL);
-    fetch(`${API_URL}/api/products?page=${page}`)
+
+    fetch(`/api/products?page=${page}`)
       .then((res: Response) => {
         if (res.status < 200 || res.status >= 300) {
           throw new Error(`${res.status}`);
