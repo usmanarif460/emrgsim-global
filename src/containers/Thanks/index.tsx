@@ -1,11 +1,11 @@
 import HeaderLarge from "../HeaderNew";
 
-import logo from "../../assets/saudi/logo.webp";
-import success from "../../assets/saudi/success.webp";
-import circle from "../../assets/saudi/circle.webp";
-import lines from "../../assets/saudi/lines.webp";
+import logo from "../../assets/saudi/logo.png";
+import success from "../../assets/saudi/success.png";
+import circle from "../../assets/saudi/circle.png";
+import lines from "../../assets/saudi/lines.png";
 
-import cellPhone from "../../assets/saudi/group-1.webp";
+import cellPhone from "../../assets/saudi/group-1.png";
 
 import "./index.scss";
 

@@ -1,4 +1,4 @@
-import logo from "../../assets/saudi/logo.webp";
+import logo from "../../assets/saudi/logo.png";
 import hero from "../../assets/hero.jpeg";
 
 import "./index.scss";

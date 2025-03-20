@@ -1,4 +1,4 @@
-import logo from "../../assets/saudi/logo.webp";
+import logo from "../../assets/saudi/logo.png";
 import sim from "../../assets/saudi/sim.svg";
 import dollar from "../../assets/saudi/]dollar.svg";
 
