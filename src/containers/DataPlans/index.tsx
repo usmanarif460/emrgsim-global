@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import selfe from "../../assets/saudi/selfe.png";
+import selfe from "../../assets/saudi/selfe.webp";
 import "./index.scss";
-import cellPhone from "../../assets/saudi/group-1.png";
+import cellPhone from "../../assets/saudi/group-1.webp";
 
 import { international } from "../../language";
 import common from "../../language/english/common.json";

@@ -1,4 +1,4 @@
-import cellPhone from "../../assets/saudi/new-group.png";
+import cellPhone from "../../assets/saudi/new-group.webp";
 
 import "./index.scss";
 

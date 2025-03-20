@@ -1,6 +1,6 @@
 import "./index.scss";
 import Header from "../ProfileHeader";
-import logo from "../../assets/saudi/logo.png";
+import logo from "../../assets/saudi/logo.webp";
 import { useHistory } from "react-router-dom";
 
 type Props = {};

@@ -5,7 +5,7 @@ import "./index.scss";
 import { international } from "../../language";
 import common from "../../language/english/common.json";
 import phone from "../../assets/globephone.jpeg";
-import logo from "../../assets/saudi/logo.png";
+import logo from "../../assets/saudi/logo.webp";
 
 type User = {
   firstName: string;
