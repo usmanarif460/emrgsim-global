@@ -19,7 +19,7 @@ const Ad = (props: Props) => {
   const history = useHistory();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    history.push("data-plans");
+    history.push("verification");
   }
   return (
     <div className="container overflow-y-auto">

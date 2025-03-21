@@ -115,7 +115,7 @@ function App() {
             <AgentVerify next={() => history.push("/agent-scan")} />
           </Route>
           <Route path="/ad">
-            <Ad createAccount={() => history.push("/create-account")} />
+            <Ad createAccount={() => history.push("/verification")} />
           </Route>
 
           <Route path="/create-account">
@@ -140,13 +140,13 @@ function App() {
                 console.log(product);
                 setProduct(product);
                 setProductId(product.id);
-                history.push("/verification");
+                history.push("/purchase");
               }}
             />
           </Route>
 
           <Route path="/terms-and-conditions">
-            <TermsAndConditions next={() => history.push("/purchase")} />
+            <TermsAndConditions next={() => history.push("/data-plans")} />
           </Route>
           <Route path="/purchase">
             <Purchase
